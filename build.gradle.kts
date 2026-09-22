@@ -1,8 +1,9 @@
 plugins {
     id("java")
+    id ("application")
 }
 
-group = "org.example"
+group = "edu.bsu.cs222.wikipedia"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -10,10 +11,14 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    implementation(group = "org.slf4j", name = "slf4j-nop", version = "2.0.9")
+    implementation(group = "com.jayway.jsonpath", name = "json-path", version = "2.8.0")
+    implementation(group = "net.minidev", name = "json-smart", version = "2.5.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
+
 
 tasks.test {
     useJUnitPlatform()
