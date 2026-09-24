@@ -27,7 +27,7 @@ public class ReadJsonFromFileTest {
 
     private String readSampleFileAsString() throws NullPointerException, IOException {
         InputStream sampleFile = Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("sample.json");
+                .getResourceAsStream("zappaSample.json");
         return new String(Objects.requireNonNull(sampleFile).readAllBytes(), Charset.defaultCharset());
     }
 

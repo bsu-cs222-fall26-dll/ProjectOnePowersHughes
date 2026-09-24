@@ -12,16 +12,17 @@ public class WikipediaConnectionDemo {
         URLConnection connection = connectToWikipedia();
         String jsonData = readJsonAsStringFrom(connection);
         printRawJson(jsonData);
+
     }
 
     private static URLConnection connectToWikipedia() throws IOException, URISyntaxException {
         String encodedUrlString = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" +
-                URLEncoder.encode("Zappa", Charset.defaultCharset()) +
+                URLEncoder.encode("Apollo", Charset.defaultCharset()) +
                 "&rvprop=timestamp" + URLEncoder.encode("|",Charset.defaultCharset()) + "user&rvlimit=4&redirects";
         URI uri = new URI(encodedUrlString);
         URLConnection connection = uri.toURL().openConnection();
         connection.setRequestProperty("User-Agent",
-                "CS222FirstProject/0.1 (dllargent@bsu.edu)");
+                "CS222FirstProject/0.1 (rhughes3@bsu.edu)");
         connection.connect();
         return connection;
     }
