@@ -8,10 +8,17 @@ import java.io.InputStream;
 
 public class WikipediaRevisionParserTest {
     @Test
-    public void testParse() throws IOException {
+    public void testFirstUser() throws IOException {
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("apollloSample.json");
         String user = parser.parse(testDataStream);
         Assertions.assertEquals("CockroachHunter",user);
+    }
+    @Test
+    public void testSecondUser() throws IOException {
+        WikipediaRevisionParser parser = new WikipediaRevisionParser();
+        InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("apollloSample.json");
+        String user = parser.parse(testDataStream);
+        Assertions.assertEquals("Krightonn",user);
     }
 }
