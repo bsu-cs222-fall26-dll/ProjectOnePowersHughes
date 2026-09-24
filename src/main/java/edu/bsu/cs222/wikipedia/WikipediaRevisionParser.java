@@ -8,7 +8,8 @@ import java.io.InputStream;
 
 public class WikipediaRevisionParser {
     public String parse(InputStream testDataStream) throws IOException {
-        return "CockroachHunter";
+        JSONArray result = (JSONArray) JsonPath.read(testDataStream,"$..user");
+        return result.get(0).toString();
     }
 }
 
